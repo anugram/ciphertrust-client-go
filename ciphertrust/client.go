@@ -76,7 +76,7 @@ func NewClient(address, auth_domain, domain, username, password *string) (*Clien
 func (c *Client) doRequest(req *http.Request, jwt *string) ([]byte, error) {
     token := c.Token
 
-    if authToken != nil {
+    if jwt != nil {
 	token = *jwt
     }
 

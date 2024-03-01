@@ -2,7 +2,7 @@ package ciphertrust
 
 import (
 	"encoding/json"
-	"errors"
+	//"errors"
 	"fmt"
 	"net/http"
 	"strings"
