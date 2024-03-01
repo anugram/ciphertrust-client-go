@@ -38,7 +38,7 @@ func NewClient(address, auth_domain, domain, username, password *string) (*Clien
         TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
     }
 
-    client := Client{
+    c := Client{
 	HTTPClient: &http.Client{
 		Timeout: 10 * time.Second,
 		Transport: tr,
