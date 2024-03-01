@@ -10,15 +10,15 @@ import (
 
 // SignIn - Get a new token for user
 func (c *Client) SignIn() (*AuthResponse, error) {
-	if c.Auth.Username == "" || c.Auth.Password == "" {
+	if c.AuthData.Username == "" || c.AuthData.Password == "" {
 		return nil, fmt.Errorf("define username and password")
 	}
-	rb, err := json.Marshal(c.Auth)
+	rb, err := json.Marshal(c.AuthData)
 	if err != nil {
 		return nil, err
 	}
 
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s/signin", c.HostURL), strings.NewReader(string(rb)))
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s/signin", c.CipherTrustURL), strings.NewReader(string(rb)))
 	if err != nil {
 		return nil, err
 	}
