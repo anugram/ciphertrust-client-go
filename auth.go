@@ -18,7 +18,7 @@ func (c *Client) SignIn() (*AuthResponse, error) {
 		return nil, err
 	}
 
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s/signin", c.CipherTrustURL), strings.NewReader(string(rb)))
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s/api/v1/auth/tokens", c.CipherTrustURL), strings.NewReader(string(rb)))
 	if err != nil {
 		return nil, err
 	}
