@@ -8,7 +8,7 @@ import (
 )
 
 func (c *Client) GetAll(endpoint string) ([]Response, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s/%s", c.HostURL, endpoint), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/%s", c.CipherTrustURL, endpoint), nil)
 	if err != nil {
 		return nil, err
 	}
