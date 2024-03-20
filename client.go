@@ -80,7 +80,8 @@ func (c *Client) doRequest(req *http.Request, jwt *string) ([]byte, error) {
 	token = *jwt
     }
 
-    req.Header.Set("Authorization", token)
+    var bearer = "Bearer " + token
+    req.Header.Set("Authorization", bearer)
 
     res, err := c.HTTPClient.Do(req)
     if err != nil {
