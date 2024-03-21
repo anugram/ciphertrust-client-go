@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func (c *Client) GetAll(endpoint string) ([]Response, error) {
+func (c *Client) GetAll(endpoint string) ([]User, error) {
 	req, err := http.NewRequest("GET", fmt.Sprintf("%s/%s", c.CipherTrustURL, endpoint), nil)
 	if err != nil {
 		return nil, err
@@ -18,7 +18,7 @@ func (c *Client) GetAll(endpoint string) ([]Response, error) {
 		return nil, err
 	}
 
-	resp := []Response{}
+	resp := []User{}
 	err = json.Unmarshal(body, &resp)
 	if err != nil {
 		return nil, err
